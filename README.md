@@ -1,8 +1,8 @@
 # Adventures in Middle-Earth
 Adventures in Middle-Earth (AiME) is a module for Foundry VTT's DND5E system. It allows players to play DND5E using the rules from Cubicle 7's Lord of the Rings system: Adventures in Middle-Earth.
 
-<img src="https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://gitlab.com/dwinther/aime-module/-/raw/master/module.json">
-<img src="https://img.shields.io/endpoint?url=https://foundryshields.com/system?url=https://gitlab.com/dwinther/aime-module/-/raw/master/module.json">
+<img src="https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://raw.githubusercontent.com/ZWinther/aime-module/master/module.json">
+<img src="https://img.shields.io/endpoint?url=https://foundryshields.com/system?url=https://raw.githubusercontent.com/ZWinther/aime-module/master/module.json">
 <a href="https://ko-fi.com/dwinther"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee%3F-875a3b"></a>
 
 ## Regarding Foundry V10
@@ -21,7 +21,7 @@ Languages from AiME also replaces the default 5e languages, as does the currenci
 No content (creatures, items, etc.) is included in this module. It aims purely to create a framework for players to use the AiME rules in Foundry VTT.
 
 ## Installation
-Make sure you have the dnd5e system installed, then copy ```https://gitlab.com/dwinther/aime-module/-/raw/master/module.json``` and paste it in the manifest url field in Foundry:
+Make sure you have the dnd5e system installed, then copy ```https://raw.githubusercontent.com/ZWinther/aime-module/master/module.json``` and paste it in the manifest url field in Foundry:
 
 ![install](install.png)
 
