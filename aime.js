@@ -161,24 +161,27 @@ Hooks.on('init', async function () {
 		},
 	];
 
+	game.settings.register("aime", "spellbookToggle", {
+		name: `${game.i18n.localize("AIME.Settings.SpellbookToggle.name")}`,
+		hint: game.i18n.localize("AIME.Settings.SpellbookToggle.hint"),
+		scope: "user",
+		config: true,
+		default: false,
+		type: Boolean
+	});
 	// const rpgUI = game.modules?.get('rpg-styled-ui')?.active;
 	const tidy5eModule = game.modules?.get('tidy5e-sheet')?.active;
 
 	if (tidy5eModule === true) {
     		loadTemplates([
     		'modules/aime/templates/aime-tidy5e-standard.hbs',
-    		 ]);
+    		]);
     	}
-    // if (rpgUI === true) {
-    // 	loadTemplates([
-    // 		'modules/aime/templates/aime-miserable-box-rpgui.hbs',
-    // 		]);
-    // 	}
     loadTemplates([
     	'modules/aime/templates/aime-miserable-box.hbs',
     	'modules/aime/templates/aime-scores-end.hbs',
     	'modules/aime/templates/aime-living-standard.hbs'
-  	]);
+	]);
 
 	CONFIG.DND5E.delSkills = ["arc", "rel", "tss", "tst"];
 
@@ -331,61 +334,189 @@ Hooks.on('renderActorSheet', async function (app, html, data) {
 	        	npcPerm.remove();
 	    }
 
-        // Tidy5e Sheet Compatibility
-        if (sheetTidy === "tidy5e") {
-			const livingBox = "/modules/aime/templates/aime-tidy5e-standard.hbs"
-			const livingHtml = await renderTemplate(livingBox, data);
-			const tidyMisBox = "/modules/aime/templates/aime-tidy5e-miserable.hbs"
-			const tidyMisHtml = await renderTemplate(tidyMisBox, data);
-			const tidyGP = "/modules/aime/templates/aime-tidy5e-gp.hbs"
-			const tidyGPRender =  await renderTemplate(tidyGP, data);
-			const tidySP = "/modules/aime/templates/aime-tidy5e-sp.hbs"
-			const tidySPRender =  await renderTemplate(tidySP, data);
-			const tidyCP = "/modules/aime/templates/aime-tidy5e-cp.hbs"
-			const tidyCPRender =  await renderTemplate(tidyCP, data);
-			var tidyAlignment = $(html).find('[data-target*="alignment"]');
-			var tidyAlignmentInput = $(html).find('input[name="system.details.alignment"]')[0];
-			var tidyBackground = $(html).find('[data-target*="background"]');
-			var tidyInspiration = $(html).find('.inspiration');
+        // // Tidy5e Sheet Compatibility
+        // if (sheetTidy === "tidy5e") {
+		// 	const livingBox = "/modules/aime/templates/aime-tidy5e-standard.hbs"
+		// 	const livingHtml = await renderTemplate(livingBox, data);
+		// 	const tidyMisBox = "/modules/aime/templates/aime-tidy5e-miserable.hbs"
+		// 	const tidyMisHtml = await renderTemplate(tidyMisBox, data);
+		// 	const tidyGP = "/modules/aime/templates/aime-tidy5e-gp.hbs"
+		// 	const tidyGPRender =  await renderTemplate(tidyGP, data);
+		// 	const tidySP = "/modules/aime/templates/aime-tidy5e-sp.hbs"
+		// 	const tidySPRender =  await renderTemplate(tidySP, data);
+		// 	const tidyCP = "/modules/aime/templates/aime-tidy5e-cp.hbs"
+		// 	const tidyCPRender =  await renderTemplate(tidyCP, data);
+		// 	var tidyAlignment = $(html).find('[data-target*="alignment"]');
+		// 	var tidyAlignmentInput = $(html).find('input[name="system.details.alignment"]')[0];
+		// 	var tidyBackground = $(html).find('[data-target*="background"]');
+		// 	var tidyInspiration = $(html).find('.inspiration');
 
-			// Remove alignment and insert standard of living
-			if (sheetTidyType != "vehicle") {
-			tidyAlignment.remove();
-			tidyAlignmentInput.remove();
-			}
-			// If NPC or Vehicle remove Shadow and Perm scores
-			if (sheetTidyType != "character") {
-			var npcSha = $(html).find('[data-ability="sha"]');
-    		var npcPerm = $(html).find('[data-ability="perm"]');
-        	npcSha.remove();
-        	npcPerm.remove();
-			}
-			if (sheetTidyType === "character") {
-			tidyBackground.after(livingHtml);
+		// 	// Remove alignment and insert standard of living
+		// 	if (sheetTidyType != "vehicle") {
+		// 	tidyAlignment.remove();
+		// 	tidyAlignmentInput.remove();
+		// 	}
+		// 	// If NPC or Vehicle remove Shadow and Perm scores
+		// 	if (sheetTidyType != "character") {
+		// 	var npcSha = $(html).find('[data-ability="sha"]');
+    	// 	var npcPerm = $(html).find('[data-ability="perm"]');
+        // 	npcSha.remove();
+        // 	npcPerm.remove();
+		// 	}
+		// 	if (sheetTidyType === "character") {
+		// 	tidyBackground.after(livingHtml);
 
-			// Remove mod/save box from new scores
-			var tidySha = $(html).find('[data-ability="sha"]').find('.value-footer');
-			var tidyPerm = $(html).find('[data-ability="perm"]').find('.value-footer');
-			var tidyCogPerm = $(html).find('[data-ability="perm"]').find('.config-button');
-			var tidyCogSha = $(html).find('[data-ability="sha"]').find('.config-button');
-			tidySha.remove();
-			tidyPerm.remove();
-			tidyCogSha.remove();
-			tidyCogPerm.remove();
+		// 	// Remove mod/save box from new scores
+		// 	var tidySha = $(html).find('[data-ability="sha"]').find('.value-footer');
+		// 	var tidyPerm = $(html).find('[data-ability="perm"]').find('.value-footer');
+		// 	var tidyCogPerm = $(html).find('[data-ability="perm"]').find('.config-button');
+		// 	var tidyCogSha = $(html).find('[data-ability="sha"]').find('.config-button');
+		// 	tidySha.remove();
+		// 	tidyPerm.remove();
+		// 	tidyCogSha.remove();
+		// 	tidyCogPerm.remove();
 
-			// Add Miserable button next to Inspiration button
-			tidyInspiration.after(tidyMisHtml);
+		// 	// Add Miserable button next to Inspiration button
+		// 	tidyInspiration.after(tidyMisHtml);
 
-			// Remove spellbook tab
-			$(html).find('[data-tab="spellbook"]').remove()	
+		// 	// Remove spellbook tab
+		// 	$(html).find('[data-tab="spellbook"]').remove()	
 
-			// Change currency abbreviations
-			var tidyGPReplace = $(html).find('.denomination.gp')[0];
-			tidyGPReplace.innerHTML = tidyGPRender;
-			var tidySPReplace = $(html).find('.denomination.sp')[0];
-			tidySPReplace.innerHTML = tidySPRender;
-			var tidyCPReplace = $(html).find('.denomination.cp')[0];
-			tidyCPReplace.innerHTML = tidyCPRender;
-			}
-        }
+		// 	// Change currency abbreviations
+		// 	var tidyGPReplace = $(html).find('.denomination.gp')[0];
+		// 	tidyGPReplace.innerHTML = tidyGPRender;
+		// 	var tidySPReplace = $(html).find('.denomination.sp')[0];
+		// 	tidySPReplace.innerHTML = tidySPRender;
+		// 	var tidyCPReplace = $(html).find('.denomination.cp')[0];
+		// 	tidyCPReplace.innerHTML = tidyCPRender;
+		// 	}
+        // }
     });
+
+	Hooks.on("renderTidy5eSheet", async (app, html, data) => {
+		const tidyGP = "/modules/aime/templates/aime-tidy5e-gp.hbs"
+		const tidyGPRender =  await renderTemplate(tidyGP, data);
+		const tidySP = "/modules/aime/templates/aime-tidy5e-sp.hbs"
+		const tidySPRender =  await renderTemplate(tidySP, data);
+		const tidyCP = "/modules/aime/templates/aime-tidy5e-cp.hbs"
+		const tidyCPRender =  await renderTemplate(tidyCP, data);
+		const livingBox = "/modules/aime/templates/aime-tidy5e-standard.hbs"
+		const livingHtml = await renderTemplate(livingBox, data);
+		const tidyMisBox = "/modules/aime/templates/aime-tidy5e-miserable.hbs"
+		const tidyMisHtml = await renderTemplate(tidyMisBox, data);
+		let tidyBG = $(html).find('[data-input*="background"]');
+		let tidySummaryDel = $(html).find( '[data-target*="alignment"], [data-input*="alignment"]' );
+		let tidyInspiration = $(html).find('.inspiration');
+
+		
+		
+		// Add new fields to character summary
+		tidySummaryDel.remove();
+		tidyBG.after(livingHtml);
+
+		// Remove mod/save box from new scores
+		var tidySha = $(html).find('[data-ability="sha"]').find('.value-footer');
+		var tidyPerm = $(html).find('[data-ability="perm"]').find('.value-footer');
+		var tidyCogPerm = $(html).find('[data-ability="perm"]').find('.config-button');
+		var tidyCogSha = $(html).find('[data-ability="sha"]').find('.config-button');
+		tidySha.remove();
+		tidyPerm.remove();
+		tidyCogSha.remove();
+		tidyCogPerm.remove();
+
+		// Add Miserable button next to Inspiration button
+		tidyInspiration.after(tidyMisHtml);
+
+		//Remove spellbook tab if setting is enabled
+		if (game.settings.get("aime", "spellbookToggle")) {
+			$(html).find('[data-tab="spellbook"]').remove()	
+		};
+
+		// Change currency abbreviations
+		var tidyGPReplace = $(html).find('.denomination.gp')[0];
+		tidyGPReplace.innerHTML = tidyGPRender;
+		var tidySPReplace = $(html).find('.denomination.sp')[0];
+		tidySPReplace.innerHTML = tidySPRender;
+		var tidyCPReplace = $(html).find('.denomination.cp')[0];
+		tidyCPReplace.innerHTML = tidyCPRender;
+
+		html.find('[contenteditable]').on('paste', function(e) {
+			//strips elements added to the editable tag when pasting
+			let $self = $(this);
+		
+			// set maxlength
+			let maxlength = 40;
+			if($self[0].dataset.maxlength){
+			  maxlength = parseInt($self[0].dataset.maxlength);
+			}
+		
+			setTimeout(function() {
+			  let textString = $self.text();
+			  textString = textString.substring(0,maxlength);
+			  $self.html(textString);
+			}, 0);
+		
+		  }).on('keypress', function(e) {
+			let $self = $(this);
+		
+			// set maxlength
+			let maxlength = 40;
+			if($self[0].dataset.maxlength){
+			  maxlength = parseInt($self[0].dataset.maxlength);
+			}
+		
+			// only accept backspace, arrow keys and delete after maximum characters
+			let keys = [8,37,38,39,40,46];
+		
+			if($(this).text().length === maxlength && keys.indexOf(e.keyCode) < 0) { 
+			  e.preventDefault();
+			}
+		
+			if(e.keyCode===13){
+			  $(this).blur();
+			}
+		  });
+		
+		  html.find('[contenteditable]').blur(async (event) => {
+			let value = event.target.textContent;
+			let target = event.target.dataset.target;
+			html.find('input[type="hidden"][data-input="'+target+'"]').val(value).submit();
+		  });
+	});
+
+Hooks.on("renderTidy5eNPC", async (app, html, data) => {
+	const tidyNpcCurrency = $(html).find('.inventory-currency');
+
+	// If NPC remove Shadow and Perm scores
+		let npcSha = $(html).find('[data-ability="sha"]');
+		let npcPerm = $(html).find('[data-ability="perm"]');
+		npcSha.remove();
+		npcPerm.remove();
+	
+	// Currency
+	tidyNpcCurrency.remove();
+});
+
+Hooks.on("renderTidy5eVehicle", async (app, html, data) => {
+	const tidyGP = "/modules/aime/templates/aime-tidy5e-gp.hbs"
+	const tidyGPRender =  await renderTemplate(tidyGP, data);
+	const tidySP = "/modules/aime/templates/aime-tidy5e-sp.hbs"
+	const tidySPRender =  await renderTemplate(tidySP, data);
+	const tidyCP = "/modules/aime/templates/aime-tidy5e-cp.hbs"
+	const tidyCPRender =  await renderTemplate(tidyCP, data);
+
+	// Remove Shadow and Perm scores
+	let npcSha = $(html).find('[data-ability="sha"]');
+	let npcPerm = $(html).find('[data-ability="perm"]');
+	npcSha.remove();
+	npcPerm.remove();
+
+	// Change currency abbreviations
+	var tidyGPReplace = $(html).find('.denomination.gp')[0];
+	tidyGPReplace.innerHTML = tidyGPRender;
+	var tidySPReplace = $(html).find('.denomination.sp')[0];
+	tidySPReplace.innerHTML = tidySPRender;
+	var tidyCPReplace = $(html).find('.denomination.cp')[0];
+	tidyCPReplace.innerHTML = tidyCPRender;
+
+});
