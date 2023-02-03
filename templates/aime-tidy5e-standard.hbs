@@ -1,2 +1,3 @@
-<span {{#if owner}}contenteditable="true"{{/if}} spellcheck="false" data-target="{{actor._id}}-livingStandard" data-placeholder="{{ localize 'AIME.LivingStandard' }}">{{system.details.livingStandard}}</span>
-<input type="hidden" data-input="{{actor._id}}-livingStandard" name="system.details.livingStandard" value="{{system.details.livingStandard}}" placeholder="{{ localize 'AIME.LivingStandard' }}">
+<span class="aimeTidyInput">
+<input type="text" name="flags.aime.details.livingStandard" value="{{flags.aime.details.livingStandard}}" placeholder="{{ localize 'AIME.LivingStandard' }}"/>
+</span>
