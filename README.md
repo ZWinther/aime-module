@@ -5,9 +5,9 @@ Adventures in Middle-Earth (AiME) is a module for Foundry VTT's DND5E system. It
 <img src="https://img.shields.io/endpoint?url=https://foundryshields.com/system?url=https://raw.githubusercontent.com/ZWinther/aime-module/master/module.json">
 <a href="https://ko-fi.com/dwinther"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee%3F-875a3b"></a>
 
-## Regarding Foundry V10
+## Regarding Foundry V11
 
-The module should now be completely compatible with Foundry V10. Please don't hesitate to open a new [issue](https://gitlab.com/dwinther/aime-module/-/issues) if you find any bugs.
+The module should be completely compatible with Foundry V11. Please don't hesitate to open a new [issue](https://gitlab.com/dwinther/aime-module/-/issues) if you find any bugs.
 
 ## Features
 Currently the module overrides the default 5e character sheet with one, more closely resembling the one from AiME.
