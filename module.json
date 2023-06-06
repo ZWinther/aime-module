@@ -2,7 +2,7 @@
   "id": "aime",
   "title": "Adventures in Middle-Earth",
   "description": "Adventures in Middle-Earth for the DND5E System.",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "authors": [
     {
       "name": "Winther",
@@ -11,7 +11,7 @@
   ],
   "url": "https://github.com/ZWinther/aime-module",
   "compatibility": {
-    "minimum": "11",
+    "minimum": "10",
     "verified": "11"
   },
   "relationships": {
