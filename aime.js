@@ -48,17 +48,18 @@ Hooks.on('init', async function () {
 	CONFIG.DND5E.currencies = {
 	  gp: {
 	    label: "AIME.CoinsGP",
-	    abbreviation: "AIME.CoinsAbbrGP"
+	    abbreviation: "AIME.CoinsAbbrGP",
+		conversion: 1
 	  },
 	  sp: {
 	    label: "AIME.CoinsSP",
 	    abbreviation: "AIME.CoinsAbbrSP",
-	    conversion: {into: "gp", each: 20}
+	    conversion: 20
 	  },
 	  cp: {
 	    label: "AIME.CoinsCC",
 	    abbreviation: "AIME.CoinsAbbrCC",
-	    conversion: {into: "sp", each: 12}
+	    conversion: 240
 	  }
 	};
 	// preLocalize("currencies", { keys: ["label", "abbreviation"] });
@@ -191,17 +192,19 @@ Hooks.on('init', async function () {
 		default: false,
 		type: Boolean
 	});
+
 	const tidy5eModule = game.modules?.get('tidy5e-sheet')?.active;
 
 	if (tidy5eModule === true) {
-    		loadTemplates([
-    		'modules/aime/templates/aime-tidy5e-standard.hbs',
-    		]);
-    	}
+		loadTemplates([
+		'modules/aime/templates/aime-tidy5e-standard.hbs',
+		]);
+	}
     loadTemplates([
-    	'modules/aime/templates/aime-miserable-box.hbs',
-    	'modules/aime/templates/aime-scores-end.hbs',
-    	'modules/aime/templates/aime-living-standard.hbs'
+		'modules/aime/templates/aime-miserable-box.hbs',
+		'modules/aime/templates/aime-miserable-box2.hbs',
+		'modules/aime/templates/aime-scores-end.hbs',
+		'modules/aime/templates/aime-living-standard.hbs'
 	]);
 
 	CONFIG.DND5E.delSkills = ["arc", "rel", "tss", "tst"];
@@ -215,6 +218,7 @@ Hooks.on('init', async function () {
 
 		// Return data to the sheet
 		return data
+
 	}, "WRAPPER");
 
 	// Remove PP and EP from showing up on vehicle sheet displays since we don't use them in AiME	
@@ -242,7 +246,7 @@ Hooks.on('init', async function () {
 		const delSkills = ["arc", "rel", "tss", "tst"];
 
 		
-		if ( this.type != "vehicle" ) {
+		if ( this.type != "vehicle" && this.type != "group" ) {
 		newSkills.forEach(e => {
 			let sklName = e["skl"];
 			let sklAbility = e["ability"];
@@ -270,6 +274,12 @@ Hooks.on('init', async function () {
 	};
 
 }, "WRAPPER");
+libWrapper.register("aime", "CONFIG.Actor.dataModels.character.prototype.prepareDerivedData", function patchedPrepareAbilities(wrapped, ...args) {
+    wrapped(...args);
+
+	this.abilities.sha.mod = this.abilities.sha.value; 
+	this.abilities.perm.mod = this.abilities.perm.value;
+}, "WRAPPER");
 });
 
 function i18n(key) {
@@ -281,7 +291,22 @@ Hooks.on('renderActorSheet', async function (app, html, data) {
 	const sheet5e = app.options.classes.join();
 	const sheetTidy = app.options.classes[0];
 	const sheetTidyType = app.options.classes[3];
+	if (sheet5e === "dnd5e2,sheet,actor,character") {
+		const misBox2 = "/modules/aime/templates/aime-miserable-box2.hbs"
+		const misHtml2 = await renderTemplate(misBox2, actor);
+		var inspDiv2 = $(html).find("button.inspiration");
+		inspDiv2.after(misHtml2);
 
+		const bio2 = "/modules/aime/templates/aime-summary2.hbs"
+		const bioHtml2 = await renderTemplate(bio2, data);
+		var bioDiv2 = $(html).find('ul.characteristics');
+		bioDiv2.append(bioHtml2);
+
+		//Remove spellbook tab if setting is enabled
+		if (game.settings.get("aime", "spellbookToggle")) {
+			$(html).find('*[data-tab="spells"]').remove()
+		};
+	}
 	if (sheet5e === "dnd5e,sheet,actor,character") {
 	const misBox = "/modules/aime/templates/aime-miserable-box.hbs"
 	const misHtml = await renderTemplate(misBox, actor);
