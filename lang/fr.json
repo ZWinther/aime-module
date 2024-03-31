@@ -31,6 +31,9 @@
 	"DND5E.AbilityShaAbbr": "omb",
 	"DND5E.AbilityPermAbbr": "per",
 	"DND5E.Race": "Culture",
+	"DND5E.RaceAdd": "Ajouter une Culture",
 	"AIME.LivingStandard": "Niveau de vie",
-  	"AIME.Miserable": "Mélancolique"
+  	"AIME.Miserable": "Mélancolique",
+  	"AIME.Settings.SpellbookToggle.name": "Désactive Livre de Sorts",
+  	"AIME.Settings.SpellbookToggle.hint": "Désactive le Livre de Sorts sur les Feuilles de Personnage."
 }
