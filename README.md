@@ -37,9 +37,7 @@ I do my best to keep the module up-to-date with both the latest Foundry version 
 
 Module compatibility is a tricky one. Most modules that work for 5e have a good chance of working for AiME, **BUT**, modules that interact with ability score, skills and currency are particularly prone to breaking, due to the changes made in AiME. Some are easily fixed, some are damn near impossible for me. Open an [issue](https://gitlab.com/dwinther/aime-module/-/issues) about the incompatible module and I'll see what I can do.
 
-Currently compatible with the **default 5e sheet**, **Tidy5e sheet** and **Monster Blocks npc sheet**.
-
-Incompatible with the **Merchant Sheet NPC** module.
+Currently compatible with the **default 5e sheet** and the **legacy 5e sheet**.
 
 ## Acknowledgements
 
