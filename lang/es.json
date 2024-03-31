@@ -31,6 +31,9 @@
   "DND5E.AbilityShaAbbr": "som",
   "DND5E.AbilityPermAbbr": "per",
   "DND5E.Race": "Cultura",
+  "DND5E.RaceAdd": "Añadir cultura",
   "AIME.LivingStandard": "Nivel de vida",
-  "AIME.Miserable": "Miserable"
+  "AIME.Miserable": "Miserable",
+  "AIME.Settings.SpellbookToggle.name": "Desactivar libro de hechizos",
+  "AIME.Settings.SpellbookToggle.hint": "Desactiva el libro de hechizos en las hojas de personaje."
 }
