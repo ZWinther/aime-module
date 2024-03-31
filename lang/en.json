@@ -31,6 +31,7 @@
   "DND5E.AbilityShaAbbr": "sha",
   "DND5E.AbilityPermAbbr": "per",
   "DND5E.Race": "Culture",
+  "DND5E.RaceAdd": "Add Culture",
   "AIME.LivingStandard": "Standard of Living",
   "AIME.Miserable": "Miserable",
   "AIME.Settings.SpellbookToggle.name": "Disable Spellbook tab",
