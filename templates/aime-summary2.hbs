@@ -1,0 +1,10 @@
+<li class="lotr5eli">
+    <label class="lotr5eSum">
+        <span class="roboto-upper label">{{ localize 'AIME.LivingStandard' }}</span>
+        {{#if @root.editable}}
+        <input type="text" name="flags.aime.details.livingStandard" value="{{actor.flags.aime.details.livingStandard}}" placeholder="{{ localize 'AIME.LivingStandard' }}"/>
+        {{else}}
+        <span class="value">{{ actor.flags.aime.details.livingStandard }}</span>
+        {{/if}}
+    </label>
+</li>
