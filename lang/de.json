@@ -28,12 +28,9 @@
   "DND5E.Ideals": "Spezialisierung",
   "DND5E.Bonds": "Hoffnung",
   "DND5E.Flaws": "Verzweiflung",
-  "DND5E.AbilityShaAbbr": "sch",
-  "DND5E.AbilityPermAbbr": "per",
+  "AIME.AbilityShaAbbr": "sch",
+  "AIME.AbilityPermAbbr": "per",
   "DND5E.Race": "Kultur",
-  "DND5E.RaceAdd": "Kultur hinzufügen",
   "AIME.LivingStandard": "Lebensstandard",
-  "AIME.Miserable": "Miserabel",
-  "AIME.Settings.SpellbookToggle.name": "Zauberbuch deaktivieren",
-  "AIME.Settings.SpellbookToggle.hint": "Deaktiviert das Zauberbuch auf Charakterbogen."
+  "AIME.Miserable": "Miserabel"
 }
