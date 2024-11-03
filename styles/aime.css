@@ -1,4 +1,4 @@
-/* ----------------------------------------- */
+  /* ----------------------------------------- */
   /*  NEW 5E ACTOR SHEET                       */
   /* ----------------------------------------- */
   .dnd5e2.sheet.actor.character {
@@ -14,6 +14,25 @@
   label.lotr5eSum span.value {
     width:100%;
   }
+  .dnd5e2.sheet.actor.character .ability-scores .rows > div {
+    gap: 18px;
+  }
+  @container (min-width: 700px) {
+    .dnd5e2.sheet.actor.character .ability-scores .rows {
+      gap:18px;
+    }
+  }
+  .dnd5e2.sheet.actor.character .ability-scores .rows {
+    padding-left: 0px;
+  }
+  .dnd5e2.sheet.actor.character .ability-scores .ability-score[data-ability="sha"]::before,
+  .dnd5e2.sheet.actor.character .ability-scores .ability-score[data-ability="perm"]::before {
+    background: url("../assets/ability-score-tab.svg") transparent no-repeat top center / contain;;
+  }
+  :is(.dnd5e-theme-dark, .theme-dark) .dnd5e2.sheet.actor.character .ability-score[data-ability="sha"]::before, .dnd5e2.sheet.actor.character.dnd5e-theme-dark .ability-score[data-ability="sha"]::before,
+  :is(.dnd5e-theme-dark, .theme-dark) .dnd5e2.sheet.actor.character .ability-score[data-ability="perm"]::before, .dnd5e2.sheet.actor.character.dnd5e-theme-dark .ability-score[data-ability="perm"]::before {
+    background: url("../assets/ability-score-tab-dark.svg") transparent no-repeat top center / contain;
+  }
   .dnd5e2.sheet.actor.character .ability-scores .ability-score[data-ability="sha"] > a,
   .dnd5e2.sheet.actor.character .ability-scores .ability-score[data-ability="perm"] > a  {
     pointer-events: none;
@@ -27,6 +46,9 @@
     display: none;
   }
   .unbutton.miserable input {
+    opacity: 0;
+  }
+  .unbutton.anguished input {
     opacity: 0;
   }
   .dnd5e2.sheet.actor.character .sheet-header > .right .miserable {
@@ -67,6 +89,46 @@
     }
     100% {
       box-shadow: 0 0 8px 3px orangered;
+    }
+  }
+  .dnd5e2.sheet.actor.character .sheet-header > .right .anguished {
+    --size: 36px;
+    padding: 0;
+    position: absolute;
+    right: calc(var(--level-size) + var(--padding-right) - var(--size) * 1.6);
+    top: calc(var(--level-size) / 1 - var(--size) / 1.6);
+    width: var(--size);
+    height: var(--size);
+    background: transparent url("../../../systems/dnd5e/ui/inspiration.webp") no-repeat center / contain;
+    filter: drop-shadow(0 3px 4px var(--dnd5e-shadow-45));
+    display: grid;
+    place-content: center;
+  }
+  .dnd5e2.sheet.actor.character .sheet-header > .right .anguished:hover {
+    box-shadow: none;
+    filter: drop-shadow(0 3px 4px rgba(255, 255, 255, 0.5));
+  }
+  .dnd5e2.sheet.actor.character .anguished[aria-pressed="true"]::after {
+    content: "";
+    width: calc(var(--size) / 4 - 1px);
+    height: calc(var(--size) / 4 - 1px);
+    background: white;
+    transform: rotate(45deg);
+    box-shadow: 0 0 8px 3px black;
+    animation: pulsate-anguished 3s infinite ease-in-out;
+    position: absolute;
+    right: calc(var(--size) / 2.66);
+    pointer-events: none;
+  }
+  @keyframes pulsate-anguished {
+    0% {
+      box-shadow: 0 0 8px 3px black;
+    }
+    50% {
+      box-shadow: 0 0 8px 4px black;
+    }
+    100% {
+      box-shadow: 0 0 8px 3px black;
     }
   }
   @media (prefers-reduced-motion) {
@@ -260,96 +322,4 @@
 }
 .control-checkbox input:disabled ~ .control_indicator:after {
     border-color: #7b7b7b;
-}
-  /* ----------------------------------------- */
-  /*  Tidy5e Compatibility                     */
-  /* ----------------------------------------- */
-.tidy5e.sheet.actor {
-  min-width: 816px !important;
-}
-.ability-name.box-title.rollable[title="Shadow"] {
-  pointer-events: none !important;
-}
-.ability-name.box-title.rollable[title="Permanent"] {
-  pointer-events: none !important;
-}
-.aimeTidyInput {
-  width: max-content;
-}
-.aimeTidyInput input {
-  margin:0;
-  padding: 0;
-  height: 12px;
-  font-size: 12px;
-}
-.tidy5e.sheet.actor .playerName {
-  min-width: 20px !important;
-}
-.tidy5e.sheet.actor .inspirationOnHover .miserable {
-  display: none;
-}
-.tidy5e.sheet.actor .inspirationOnHover:hover .miserable {
-  display: block;
-}
-.tidy5e.sheet.actor .miserable {
-  position: absolute;
-  right: -13px;
-  bottom: 26px;
-  width: 34px;
-  height: 34px;
-  z-index: 5;
-}
-.tidy5e.sheet.actor .miserable input {
-  display: none;
-}
-.tidy5e.sheet.actor .miserable label {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0 5px 0 5px;
-  font-size: 24px;
-  color: var(--icon-font);
-  cursor: pointer;
-  box-shadow: 0 0 10px var(--icon-shadow) inset;
-  border: 1px solid var(--icon-outline);
-  background: var(--icon-background);
-}
-.tidy5e.sheet.actor .roundPortrait .miserable label {
-  border-radius: 50%;
-}
-
-.tidy5e.sheet.actor .miserable label i {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 34px;
-}
-
-.tidy5e.sheet.actor .miserable label:hover {
-  color: rgba(255, 255, 255, 0.75);
-  text-shadow: 0 0 5px rgba(118, 228, 255, 0.5);
-}
-
-.tidy5e.sheet.actor .miserable input:checked + label {
-  color: white;
-  text-shadow: 0 0 10px #ffc276;
-  background: #999;
-}
-
-.tidy5e.sheet.actor .miserable input:checked + label i {
-  color: #FFFFFF;
-  animation: glow 5s ease-in-out infinite alternate;
-}
-
-.tidy5e.sheet.actor .miserable input:checked + label i.disable-animation {
-  animation: none;
-}
-.tidy5e.sheet.actor .attuned-items-counter {
-  display: none !important;
 }
