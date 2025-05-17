@@ -1,3 +1,12 @@
+# Notice
+
+Due to health issues, my ability to keep this system updated is limited.
+
+Expect long delays in compatibility updates.
+
+I apologize for any inconvenience.
+
+
 # Adventures in Middle-Earth
 Adventures in Middle-Earth (AiME) is a module for Foundry VTT's DND5E system. It allows players to play DND5E using the rules from Cubicle 7's Lord of the Rings system: Adventures in Middle-Earth.
 
