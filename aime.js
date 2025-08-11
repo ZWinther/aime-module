@@ -115,12 +115,12 @@ function formatText(value) {
 
 Hooks.on('renderCharacterActorSheet', async function (app, html, data) {
 	const actor = data.actor;
-	const misBox2 = "/modules/aime/templates/aime-miserable-box2.hbs"
+	const misBox2 = "/modules/aime/templates/aime-miserable.hbs"
 	const misHtml2 = await foundry.applications.handlebars.renderTemplate(misBox2, actor);
 	const inspDiv2 = $(html).find("button.inspiration");
 	inspDiv2.after(misHtml2);
 
-	const bio2 = "/modules/aime/templates/aime-summary2.hbs"
+	const bio2 = "/modules/aime/templates/aime-summary.hbs"
 	const bioHtml2 = await foundry.applications.handlebars.renderTemplate(bio2, data);
 	const bioDiv2 = $(html).find('ul.characteristics');
 	bioDiv2.append(bioHtml2);
