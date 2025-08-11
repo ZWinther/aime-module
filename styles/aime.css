@@ -137,7 +137,35 @@
     }
   }
 
-
+  :is(.dnd5e2, .dnd5e2-journal) :is(i, span).currency{
+    &.cp:after {
+      content: "CC";
+      margin-top: -1px;
+      font-size: var(--font-size-13);
+      color: #c9986a;
+      font-style: normal;
+      display: block;
+      height: 15px !important;
+    }
+    &.sp:after {
+      content: "SP";
+      margin-top: -1px;
+      font-size: var(--font-size-13);
+      color: #bbb;
+      font-style: normal;
+      display: block;
+      height: 15px !important;
+    }
+    &.gp:after {
+      content: "GP";
+      margin-top: -1px;
+      font-size: var(--font-size-13);
+      color: #dfd476;
+      font-style: normal;
+      display: block;
+      height: 15px !important;
+    }
+  }
 
 
  /* ----------------------------------------- */
