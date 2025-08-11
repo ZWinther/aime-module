@@ -1,9 +1,3 @@
-// Remind users to install/enable libwrapper
-// Hooks.once('ready', () => {
-//     if(!game.modules.get('lib-wrapper')?.active && game.user.isGM)
-//         ui.notifications.error("Adventures in Middle-Earth requires the 'libWrapper' module. Please install and activate it.");
-// });
-
 // Handlebars helpers
 
 // less than
@@ -110,8 +104,8 @@ Hooks.on('init', async function () {
 		type: Boolean
 	});
 	foundry.applications.handlebars.loadTemplates([
-		'modules/aime/templates/aime-miserable-box2.hbs',
-		'modules/aime/templates/aime-summary2.hbs',
+		'modules/aime/templates/aime-miserable.hbs',
+		'modules/aime/templates/aime-summary.hbs',
 		'modules/aime/templates/aime-living-standard.hbs'
 	]);
 });
