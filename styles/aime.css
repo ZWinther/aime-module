@@ -4,14 +4,14 @@
   .dnd5e2.sheet.actor.character {
     min-width: 962px;
   }
-  li.lotr5eli {
+  li.aimeli {
     margin-top: 10%;
   }
-  label.lotr5eSum {
+  label.aimeSum {
     flex-direction: column;  
     align-items: flex-start !important;
   }
-  label.lotr5eSum span.value {
+  label.aimeSum span.value {
     width:100%;
   }
   .dnd5e2.sheet.actor.character .ability-scores .rows > div {
