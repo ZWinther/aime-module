@@ -30,10 +30,90 @@
   "DND5E.Flaws": "Despair",
   "AIME.AbilityShaAbbr": "sha",
   "AIME.AbilityPermAbbr": "per",
-  "DND5E.Race": "Culture",
-  "DND5E.RaceAdd": "Add Culture",
+  "DND5E.Species": {
+      "Label": "Culture",
+      "Add": "Add Culture",
+      "AddLegacy": "Add Culture",
+      "Features": "Culture Features",
+      "FeaturesLegacy": "Culture Features",
+      "Name": "Culture Name"
+  },
+  "TYPES.Item.race": "Culture",
+  "TYPES.Item.racePl": "Cultures",
+  "TYPES.Item.raceLegacy": "Culture",
+  "TYPES.Item.raceLegacyPl": "Cultures",
+  "DND5E.ItemSpeciesDetails": "Culture Details",
+  "DND5E.ItemSpeciesDetailsLegacy": "Culture Details",
+  "DND5E.RacialTraits": "Cultural Traits",
+  "DND5E.RacialTraitsLegacy": "Cultural Traits",
+  "DND5E.Feats": "Virtues",
   "AIME.LivingStandard": "Standard of Living",
   "AIME.Miserable": "Miserable",
   "AIME.Settings.SpellbookToggle.name": "Disable Spellbook tab",
-  "AIME.Settings.SpellbookToggle.hint": "Disables the spellbook tab on character sheets."
+  "AIME.Settings.SpellbookToggle.hint": "Disables the spellbook tab on the character sheet.",
+  "AIME.Settings.specialTraitsToggle.name": "Hide Non-AiME Special Traits",
+  "AIME.Settings.specialTraitsToggle.hint": "Disables the mostly DnD relevant 'Special Traits' on the character sheet.",
+  "DND5E.AdvancementItemGrantHint": "Grant the character items (such as equipment or virtues) when they reach a certain level.",
+  "DND5E.ADVANCEMENT": {
+  "AbilityScoreImprovement": {
+    "Action": {
+      "Select": "Select Virtue"
+    }
+  },
+  "Details": "Improvement Details",
+    "Feat": {
+      "ASIName": "Ability Score Improvement",
+      "Hint": "Drop a virtue here to choose one instead of an ability score improvement."
+    },
+    "FIELDS": {
+      "cap": {
+        "label": "Point Cap",
+        "hint": "Maximum number of points a player can assign to a single score."
+      },
+      "locked": {
+        "label": "Locked",
+        "hint": "Ability cannot be improved.",
+        "locked": "Ability cannot be improved.",
+        "unlocked": "Ability may be improved."
+      },
+      "fixed": {
+        "label": "Fixed Improvement",
+        "hint": "Abilities that are improved by a fixed amount and cannot be manually improved during the process."
+      },
+      "points": {
+        "label": "Points",
+        "hint": "Number of points that can be assigned to any unlocked ability score.",
+        "decrease": "Decrease Points",
+        "increase": "Increase Points"
+      }
+    },
+    "Hint": "Allow the player to increase one or more ability scores or take an optional virtue.",
+    "Journal": {
+      "DescriptionLegacy": "<p>When you reach {firstLevelOrdinal} level, and again at {otherLevelsOrdinal} level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above {maxAbilityScore} using this feature.</p><p>Using the optional virtue rule, you can forgo taking this feature to take a virtue of your choice instead.</p>",
+      "DescriptionModern": "<p>You gain an Ability Score Improvement or a virtue of your choice for which you qualify. You gain this feature again at {class} levels {otherLevels}.</p>",
+      "Name": "Ability Score Improvement"
+    },
+    "LockedHint": "Scores cannot be modified with a virtue selected.",
+    "Title": "Ability Score Improvement",
+    "Warning": {
+      "Level": "Must be at least level {level} to take this virtue.",
+      "Type": "Only features with the \"virtue\" type can be selected."
+    }
+  },
+  "DND5E.Feature": {
+  "Feat": {
+    "Label": "Virtue",
+    "General": "Open Virtue",
+    "Origin": "Cultural Virtue"
+  }
+},
+"VARIANT": {
+    "Hint": "Enable and configure rules variations offered by the system.",
+    "Label": "Configure Variant Rules",
+    "Name": "Variant Rules",
+    "AllowFeats": {
+      "Hint": "Allow players to choose a virtue rather than taking an ability score improvement during class advancement when using the Legacy rules.",
+      "Name": "Allow Virtues"
+    }
+}
 }
