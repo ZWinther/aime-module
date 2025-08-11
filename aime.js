@@ -52,7 +52,7 @@ Hooks.on('init', async function () {
 		ins: { label: "AIME.SkillIns", aability: "wis", fullKey: "insight"},
 		lor: { label: "AIME.SkillLor", aability: "int", fullKey: "lore" },
 		rid: { label: "AIME.SkillRid", aability: "int", fullKey: "riddle" },
-		lor: { label: "AIME.SkillSha", aability: "int", fullKey: "shadow-lore" },
+		sha: { label: "AIME.SkillSha", aability: "int", fullKey: "shadow-lore" },
 		tra: { label: "AIME.SkillTra", aability: "int", fullKey: "tradition" }
 	});
 
