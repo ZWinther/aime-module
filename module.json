@@ -2,7 +2,7 @@
   "id": "aime",
   "title": "Adventures in Middle-Earth",
   "description": "Adventures in Middle-Earth for the DND5E System.",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "authors": [
     {
       "name": "Winther",
@@ -21,7 +21,8 @@
         "type": "system",
         "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
         "compatibility": {
-          "minimum": "5.0.0"
+          "minimum": "5.0.0",
+          "verified": "5.2.3"
         }
       }
     ],
@@ -76,5 +77,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/ZWinther/aime-module/master/module.json",
-  "download": "https://github.com/ZWinther/aime-module/archive/refs/tags/0.9.0.zip"
+  "download": "https://github.com/ZWinther/aime-module/archive/refs/tags/0.9.1.zip"
 }
