@@ -115,5 +115,9 @@
       "Hint": "Allow players to choose a virtue rather than taking an ability score improvement during class advancement when using the Legacy rules.",
       "Name": "Allow Virtues"
     }
+},
+"TYPES.Actor.group": "Company",
+"TYPES.Actor.groupPl": "Companies"
 }
+
 }
