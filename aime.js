@@ -158,6 +158,12 @@ Hooks.on('renderActorSheet5eVehicle', async function (app, html, data) {
 	npcSha.remove();
 	npcPerm.remove();
 });
+Hooks.on('renderVehicleActorSheet', async function (app, html, data) {
+	const npcSha = $(html).find('[data-ability="sha"]');
+	const npcPerm = $(html).find('[data-ability="perm"]');
+	npcSha.remove();
+	npcPerm.remove();
+});
 Hooks.on('renderNPCActorSheet', async function (app, html, data) {
 	const npcSha = $(html).find('[data-ability="sha"]');
 	const npcPerm = $(html).find('[data-ability="perm"]');
